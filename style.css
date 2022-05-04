@@ -1,7 +1,6 @@
 :root {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  font-size: 62.5%;
 
   --brand-green: #00856F;
   --brand-green-light: #DCE9E2;
@@ -12,4 +11,16 @@
   --gray-headline: #061800;
   --gray-paragraph: #384633;
   --white: #3E3E3E;
+}
+
+* {
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+}
+
+main {
+  width: 37.5rem;
+  margin: auto;
 }
