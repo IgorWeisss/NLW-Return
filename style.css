@@ -29,6 +29,8 @@ html {
 }
 
 nav {
+  z-index: 99;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,7 +48,7 @@ nav {
 }
 
 nav.scroll {
-  background-color: var(--brand-green-hover);
+  background-color: var(--brand-green);
 }
 
 nav.scroll a:nth-child(1) svg path {
@@ -55,6 +57,22 @@ nav.scroll a:nth-child(1) svg path {
 
 nav.scroll a:nth-child(2) svg path {
   stroke: var(--white);
+}
+
+.menu {
+  position: absolute;
+  background-color: var(--brand-green);
+  height: calc(100vh - var(--nav-height));
+  width: 100vw;
+
+  top: var(--nav-height);
+  left: 0;
+  transition: 0.5s;
+}
+
+.menuHide {
+  transform: translateX(100%);
+  opacity: 0%;
 }
 
 .hero {
@@ -138,6 +156,7 @@ button:hover {
   display: flex;
   justify-content: center;
   gap: 6rem;
+  z-index: 1;
 }
 
 li {
@@ -167,15 +186,26 @@ li {
   color: var(--brand-green);
 }
 
-.serviços {
-  margin-top: -21.8rem;
+.serviços::before {
+  content: '';
   background-color: var(--brand-green-light-02);
-  padding: 31.8rem 2.4rem 10rem;
+  width: 100%;
+  height: 23.5rem;
+  position: absolute;
+  top: -23.5rem;
+}
+
+.serviços {
+  position: relative;
+
+  background-color: var(--brand-green-light-02);
+  padding: 10rem 2.4rem 10rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 
 .serviços h4 {

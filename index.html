@@ -67,7 +67,7 @@
             />
           </svg>
         </a>
-        <a href="#">
+        <a id="menuBtn" onclick="showMenu()">
           <svg
             width="40"
             height="40"
@@ -98,9 +98,35 @@
             />
           </svg>
         </a>
+
+        <div class="menu menuHide">
+          <ul>
+            <li>
+              <a href="#" onclick="hideMenu()">
+                Início
+              </a>
+            </li>
+            <li>
+              <a href="#Serviços" onclick="hideMenu()">
+                Serviços
+              </a>
+            </li>
+            <li>
+              <a href="#Sobre" onclick="hideMenu()">
+                Sobre
+              </a>
+            </li>
+            <li>
+              <a href="#Contato" onclick="hideMenu()">
+                Contato
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </nav>
 
-      <section class="hero">
+      <section id="Início" class="hero">
         <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
         <h1>Assistência médica simplificada para todos</h1>
         <p>
@@ -140,7 +166,7 @@
         </div>
       </section>
 
-      <section class="serviços">
+      <section id="Serviços" class="serviços">
         <h4>SERVIÇOS</h4>
         <h2>Como podemos ajudá-lo a se sentir melhor?</h2>
 
@@ -214,7 +240,7 @@
         </div>
       </section>
 
-      <section class="sobre">
+      <section id="Sobre" class="sobre">
         <h4>SOBRE NÓS</h4>
         <h2>Entenda quem somos e por que existimos</h2>
         <p>
@@ -234,7 +260,7 @@
         />
       </section>
 
-      <section class="contato">
+      <section id="Contato" class="contato">
         <h2>Entre em contato com a gente!</h2>
         <address>
           <a href="#"
