@@ -11,6 +11,8 @@
   --gray-headline: #061800;
   --gray-paragraph: #384633;
   --white: #FFFFFF;
+
+  --nav-height: 7.2rem;
 }
 
 * {
@@ -23,17 +25,40 @@
 html {
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
-header {
+nav {
   display: flex;
-  background-color: var(--brand-green-light);
+  align-items: center;
   justify-content: space-between;
   padding: 1.6rem 2.4rem;
-  align-items: center;
+  background-color: var(--brand-green-light);
+  
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+nav.scroll {
+  background-color: var(--brand-green-hover);
+}
+
+nav.scroll a:nth-child(1) svg path {
+  fill: var(--white);
+}
+
+nav.scroll a:nth-child(2) svg path {
+  stroke: var(--white);
 }
 
 .hero {
+  margin-top: var(--nav-height);
   padding: 0 2.4rem 0;
   display: flex;
   flex-direction: column;
