@@ -28,6 +28,10 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  text-decoration: none;
+}
+
 nav {
   z-index: 99;
 
@@ -47,6 +51,17 @@ nav {
   transition: 0.5s;
 }
 
+nav a {
+  transition: 0.5s;
+}
+
+nav #closeIcon {
+  position: absolute;
+  right: 2.4rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
 nav.scroll {
   background-color: var(--brand-green);
 }
@@ -59,6 +74,16 @@ nav.scroll a:nth-child(2) svg path {
   stroke: var(--white);
 }
 
+nav.expanded #menuIcon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+nav.expanded #closeIcon {
+  opacity: 1;
+  visibility: visible;
+}
+
 .menu {
   position: absolute;
   background-color: var(--brand-green);
@@ -67,7 +92,40 @@ nav.scroll a:nth-child(2) svg path {
 
   top: var(--nav-height);
   left: 0;
+
   transition: 0.5s;
+}
+
+.menu .sections {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.sections li {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu .socialMedia {
+  margin-top: 8rem;
+  
+  display: flex;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+.menu a {
+  color: var(--brand-beige);
+}
+
+.menu button {
+  background-color: var(--white);
+  color: var(--brand-green);
 }
 
 .menuHide {
@@ -320,10 +378,6 @@ li {
   line-height: 3.9rem;
   color: var(--gray-headline);
   margin-bottom: 3.2rem;
-}
-
-a {
-  text-decoration: none;
 }
 
 address {

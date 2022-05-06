@@ -17,7 +17,7 @@
   <body>
     <main>
       <nav class="">
-        <a href="#">
+        <a href="#" onclick="hideMenu()">
           <svg
             width="133"
             height="18"
@@ -67,7 +67,7 @@
             />
           </svg>
         </a>
-        <a id="menuBtn" onclick="showMenu()">
+        <a id="menuIcon" onclick="showMenu()">
           <svg
             width="40"
             height="40"
@@ -98,32 +98,71 @@
             />
           </svg>
         </a>
+        <a id="closeIcon" onclick="hideMenu()">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M30 10L10 30M10 10L30 30"
+              stroke="#FFFAF1"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
 
         <div class="menu menuHide">
-          <ul>
+          <ul class="sections">
             <li>
-              <a href="#" onclick="hideMenu()">
-                Início
+              <a href="#" onclick="hideMenu()"> Início </a>
+            </li>
+            <li>
+              <a href="#Serviços" onclick="hideMenu()"> Serviços </a>
+            </li>
+            <li>
+              <a href="#Sobre" onclick="hideMenu()"> Sobre </a>
+            </li>
+            <li>
+              <a href="#Contato" onclick="hideMenu()"> Contato </a>
+            </li>
+            <li>
+              <button>
+                AGENDE SUA CONSULTA
+              </button>
+            </li>
+          </ul>
+          <ul class="socialMedia">
+            <li>
+              <a href="https://www.instagram.com" target="blank">
+                <img
+                  src="./assets/instagramWhite.svg"
+                  alt="Ícone do Instagram em branco"
+                />
               </a>
             </li>
             <li>
-              <a href="#Serviços" onclick="hideMenu()">
-                Serviços
+              <a href="https://www.facebook.com" target="blank">
+                <img
+                  src="./assets/facebookWhite.svg"
+                  alt="Ícone do Facebook em branco"
+                />
               </a>
             </li>
             <li>
-              <a href="#Sobre" onclick="hideMenu()">
-                Sobre
-              </a>
-            </li>
-            <li>
-              <a href="#Contato" onclick="hideMenu()">
-                Contato
+              <a href="https://www.youtube.com" target="blank">
+                <img
+                  src="./assets/youtubeWhite.svg"
+                  alt="Ícone do Youtube em branco"
+                />
               </a>
             </li>
           </ul>
         </div>
-
       </nav>
 
       <section id="Início" class="hero">

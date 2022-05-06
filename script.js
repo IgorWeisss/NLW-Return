@@ -1,6 +1,5 @@
 let nav = document.querySelectorAll('nav')[0]
 let menu = document.querySelector('.menu')
-let menuBtn = document.querySelector('#menuBtn')
 
 onscroll = checkScroll
 
@@ -14,14 +13,13 @@ function checkScroll() {
 
 function hideMenu() {
   menu.classList.add('menuHide')
+  nav.classList.remove('expanded')
   checkScroll()
+  onscroll = checkScroll
 }
 
 function showMenu() {
-  if(menu.classList.contains('menuHide')) {
     menu.classList.remove('menuHide')
-    nav.classList.add('scroll')
-  } else {
-    hideMenu()
-  }
+    nav.classList.add('scroll', 'expanded')
+    onscroll = ''
 }
