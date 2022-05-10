@@ -1,5 +1,6 @@
 let nav = document.querySelectorAll('nav')[0]
 let menu = document.querySelector('.menu')
+let backToTop = document.querySelector('.backToTop')
 
 onscroll = checkScroll
 
@@ -8,6 +9,16 @@ function checkScroll() {
     nav.classList.add('scroll')
   } else {
     nav.classList.remove('scroll')
+  }
+
+  showBackToTopButton()
+}
+
+function showBackToTopButton() {
+  if (scrollY > 200) {
+    backToTop.classList.remove('hidden')
+  } else {
+    backToTop.classList.add('hidden')
   }
 }
 

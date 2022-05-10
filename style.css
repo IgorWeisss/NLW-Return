@@ -180,6 +180,7 @@ button {
 }
 
 .button {
+  transition: 0.5s;
   border: none;
   background-color: var(--brand-green);
   height: 5.2rem;
@@ -413,6 +414,23 @@ address a {
 .contato button {
   align-self: flex-start;
   margin-bottom: 6rem;
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+  transform: translateY(0);
+  z-index: 98;
+}
+
+.backToTop.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
 }
 
 footer {
