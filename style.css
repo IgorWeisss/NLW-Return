@@ -123,9 +123,13 @@ nav.expanded #closeIcon {
   color: var(--brand-beige);
 }
 
-.menu button {
+.menu .button {
   background-color: var(--white);
   color: var(--brand-green);
+}
+
+.menu button {
+  background-color: var(--brand-green);
 }
 
 .menuHide {
@@ -173,12 +177,16 @@ nav.expanded #closeIcon {
 
 button {
   border: none;
+}
+
+.button {
+  border: none;
   background-color: var(--brand-green);
   height: 5.2rem;
-  padding: 1.6rem 3.2rem;
+  padding: 0 3.2rem;
+  border-radius: 40px;
   display: flex;
   justify-content: space-between;
-  border-radius: 40px;
   font-style: normal;
   font-weight: 700;
   font-size: 1.4rem;
@@ -188,7 +196,7 @@ button {
   color: var(--white);
 }
 
-button:hover {
+.button:hover {
   background-color: var(--brand-green-hover);
   cursor: pointer;
 }

@@ -15,13 +15,13 @@ let left = {
 
 ScrollReveal().reveal(`
 .hero h1,
-.hero button,
+.hero .button,
 .numbers,
 .numbers h3,
 .serviços h2,
 .sobre h2,
 .sobre .photo,
-.contato button,
+.contato .button,
 .contato .photo
 `, left)
 
