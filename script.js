@@ -1,6 +1,8 @@
 let nav = document.querySelectorAll('nav')[0]
 let menu = document.querySelector('.menu')
 let backToTop = document.querySelector('.backToTop')
+let colorPicker = document.querySelector('#colorPicker')
+let root = document.querySelector(':root')
 
 onscroll = checkScroll
 
@@ -33,4 +35,8 @@ function showMenu() {
     menu.classList.remove('menuHide')
     nav.classList.add('scroll', 'expanded')
     onscroll = ''
+}
+
+colorPicker.oninput = function () {
+  root.style.setProperty('--hue', colorPicker.value)
 }
