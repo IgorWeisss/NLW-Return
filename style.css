@@ -177,6 +177,7 @@ nav.expanded #closeIcon {
 
 button {
   border: none;
+  border-radius: 40px;
 }
 
 .button {
