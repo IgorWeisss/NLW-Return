@@ -53,5 +53,5 @@ colorPicker.oninput = function () {
   let brandColor = getMainColor()
   setTimeout(() => {
     themeTag.setAttribute('content', brandColor)
-  }, 250);
+  }, 350);
 }
