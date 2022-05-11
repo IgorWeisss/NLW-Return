@@ -51,5 +51,7 @@ function getMainColor() {
 colorPicker.oninput = function () {
   root.style.setProperty('--hue', colorPicker.value)
   let brandColor = getMainColor()
-  themeTag.setAttribute('content', brandColor)
+  setTimeout(() => {
+    themeTag.setAttribute('content', brandColor)
+  }, 500);
 }
