@@ -4,6 +4,8 @@ let backToTop = document.querySelector('.backToTop')
 let colorPicker = document.querySelector('#colorPicker')
 let root = document.querySelector(':root')
 let themeTag = document.querySelector('#themeTag')
+let hueButton = document.querySelector('.hueButton')
+let slideContainer = document.querySelector('.slidecontainer')
 
 onload = () => {
   let brandColor = getMainColor()
@@ -31,6 +33,9 @@ function showBackToTopButton() {
 }
 
 function hideMenu() {
+  hueButton.classList.remove('clicked')
+  slideContainer.classList.add('hidden')
+  adjustTransitions(false)
   menu.classList.add('menuHide')
   nav.classList.remove('expanded')
   checkScroll()
@@ -48,10 +53,30 @@ function getMainColor() {
   return computedStyle.getPropertyValue('--brand-green')
 }
 
+function showColorPicker() {
+  if (hueButton.classList.contains('clicked')) {
+    hueButton.classList.remove('clicked')
+    slideContainer.classList.add('hidden')
+    adjustTransitions(false)
+  } else {
+    hueButton.classList.add('clicked')
+    slideContainer.classList.remove('hidden')
+    adjustTransitions(true)
+  }
+}
+
+function adjustTransitions (state) {
+  if (state) {
+    menu.classList.add('noTransition')
+    nav.classList.add('noTransition')
+  } else {
+    menu.classList.remove('noTransition')
+    nav.classList.remove('noTransition')
+  }
+}
+
 colorPicker.oninput = function () {
   root.style.setProperty('--hue', colorPicker.value)
   let brandColor = getMainColor()
-  setTimeout(() => {
-    themeTag.setAttribute('content', brandColor)
-  }, 400);
+  themeTag.setAttribute('content', brandColor)
 }
