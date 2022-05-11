@@ -24,10 +24,6 @@
   font-size: 1.6rem;
 }
 
-#themeTag {
-  content: var(--brand-green);
-}
-
 html {
   display: flex;
   flex-direction: column;

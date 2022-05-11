@@ -5,6 +5,11 @@ let colorPicker = document.querySelector('#colorPicker')
 let root = document.querySelector(':root')
 let themeTag = document.querySelector('#themeTag')
 
+onload = () => {
+  let brandColor = getMainColor()
+  themeTag.setAttribute('content', brandColor)
+}
+
 onscroll = checkScroll
 
 function checkScroll() {
@@ -38,7 +43,13 @@ function showMenu() {
     onscroll = ''
 }
 
+function getMainColor() {
+  let computedStyle = getComputedStyle(root)
+  return computedStyle.getPropertyValue('--brand-green')
+}
+
 colorPicker.oninput = function () {
   root.style.setProperty('--hue', colorPicker.value)
-  themeTag.style.content='var(--brand-green)'
+  let brandColor = getMainColor()
+  themeTag.setAttribute('content', brandColor)
 }
