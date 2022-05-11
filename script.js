@@ -3,6 +3,7 @@ let menu = document.querySelector('.menu')
 let backToTop = document.querySelector('.backToTop')
 let colorPicker = document.querySelector('#colorPicker')
 let root = document.querySelector(':root')
+let themeTag = document.querySelector('#themeTag')
 
 onscroll = checkScroll
 
@@ -39,4 +40,5 @@ function showMenu() {
 
 colorPicker.oninput = function () {
   root.style.setProperty('--hue', colorPicker.value)
+  themeTag.style.content='var(--brand-green)'
 }
