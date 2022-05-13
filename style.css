@@ -155,7 +155,7 @@ nav.expanded #closeIcon {
   color: var(--brand-green);
 }
 
-.menu button {
+.menu button:nth-child(2) {
   background-color: var(--brand-green);
   width: fit-content;
   align-self: center;
@@ -178,9 +178,10 @@ nav.expanded #closeIcon {
   justify-content: center;
   align-items: center;
   
-  position: relative;
+  position: absolute;
   
-  bottom: 0;
+  top: 0;
+  right: 2.4rem;
   transition: 0.5s;
 }
 
@@ -190,16 +191,17 @@ nav.expanded #closeIcon {
 }
 
 .slidecontainer {
-  margin-inline: auto;
-  margin-top: 4.8rem;
-  width: 90%;
+  margin-top: 1rem;
+  width: calc(90% - 7rem);
   transition: 0.5s;
+
+  position: absolute;
+  left: 2.4rem;
 }
 
 .slidecontainer.hidden {
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-100%);
 }
 
 .slider {
