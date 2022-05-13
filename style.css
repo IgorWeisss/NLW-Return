@@ -150,6 +150,10 @@ nav.expanded #closeIcon {
   color: var(--brand-beige);
 }
 
+.desktopButton {
+  display: none;
+}
+
 .menu .button {
   background-color: var(--white);
   color: var(--brand-green);
@@ -170,7 +174,7 @@ nav.expanded #closeIcon {
 .menu .hueButton {
   height: 4rem;
   width: 4rem;
-  background-color: var(--brand-green-light);
+  background-color: transparent;
   border-radius: .8rem;
   z-index: 99;
 
@@ -589,13 +593,18 @@ footer ul {
 
   #menuIcon,
   #closeIcon,
-  .menu .socialMedia {
+  .menu .socialMedia,
+  .menu .button {
     display: none;
   }
 
   nav {
     height: var(--nav-height);
     padding-inline: 12.3rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--brand-green-light);
   }
 
   div.menu.menuHide {
@@ -603,18 +612,80 @@ footer ul {
     justify-content: space-between;
   }
 
+  .menu .sections li a {
+    color: var(--brand-green);
+    margin-block: auto;
+  }
+
+  nav.scroll .menu .sections li a {
+    color: var(--brand-green-light);
+  }
+
+  nav.scroll .menu .sections li a::after {
+    background-color: var(--brand-green-light);
+  }
+
+  .menu .sections li a::after {
+    content: '';
+    width: 0%;
+    display: flex;
+    height: 2px;
+    position: relative;
+    bottom: calc(-2rem + 2px);
+    right: 15%;
+    background-color: var(--brand-green);
+    transition: 0.2s;
+  }
+
+  .menu .sections li a:hover::after {
+    width: 130%;
+  }
+
   .menu .hueButton {
     position: initial;
+    background-color: transparent;
   }
 
   div.slidecontainer {
     position: absolute;
-    right: 12.3rem;
-    top: 7rem;
+    right: 2.4rem;
+    top: 8rem;
+    width: 30rem;
   }
 
-  section#Início.hero {
-    margin-top: 0;
+  .desktopButton {
+    display: flex;
+    background-color: transparent;
+  }
+
+  .desktopButton a {
+    box-sizing: border-box;
+    color: var(--brand-green);
+    background-color: transparent;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    height: 3.8rem;
+    border: 1px solid var(--brand-green);
+  }
+
+  .desktopButton:hover .button {
+    background-color: var(--brand-green);
+    color: var(--white);
+  }
+
+  nav.scroll .desktopButton a {
+    color: var(--white);
+    border-color: var(--white);
+    filter: brightness(1.2);
+  }
+
+  .menu .hueButton {
+    position: absolute;
+    top: 3.6rem;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
 
 }
