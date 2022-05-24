@@ -714,6 +714,7 @@ footer ul {
   }
 
   .hero .head {
+    max-width: 112rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -756,6 +757,7 @@ footer ul {
 
   .hero .numbers {
     padding: 6rem 12rem;
+    max-width: 112rem;
   }
 
   .hero .numbers ul {

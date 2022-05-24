@@ -7,32 +7,16 @@ let themeTag = document.querySelector('#themeTag')
 let hueButton = document.querySelector('.hueButton')
 let slideContainer = document.querySelector('.slidecontainer')
 
-let sectionsScrollValues = [
-  0,
-  1525.8182373046875,
-  2922.9091796875,
-  4505.45458984375,
-]
-
-let sections = [
-  'Início',
-  'Serviços',
-  'Sobre',
-  'Contato'
-]
-
 onload = () => {
   let brandColor = getMainColor()
   themeTag.setAttribute('content', brandColor)
-  addHoverClassToLinks(sectionsScrollValues, sections)
+  addHoverClassToLinks()
 }
 
-onscroll = handleScroll
-
-function handleScroll() {
+onscroll = () => {
   addScrollClassOnNav()
   showBackToTopButton()
-  addHoverClassToLinks(sectionsScrollValues, sections)
+  addHoverClassToLinks()
 }
 
 function addScrollClassOnNav() {
@@ -51,23 +35,45 @@ function showBackToTopButton() {
   }
 }
 
-function addHoverClassToLinks(scrollValues, sections) {
-  scrollValues.forEach(value => {
-    let i = scrollValues.indexOf(value)
+function addHoverClassToLinks() {
+  const sections = [
+    'Início',
+    'Serviços',
+    'Sobre',
+    'Contato'
+  ]
+
+  const sectionsOffsetValues = [
+    Início.offsetTop,
+    Serviços.offsetTop,
+    Sobre.offsetTop,
+    Contato.offsetTop
+  ]
+
+  const targetLine = scrollY + (innerHeight / 2)
+
+  sectionsOffsetValues.forEach(section => {
+    let i = sectionsOffsetValues.indexOf(section)
+    let value
     let nextValue
 
-    if (i==scrollValues.length - 1) {
-      nextValue = 99999999
+    if (i<sectionsOffsetValues.length-1) {
+      value = section
+      nextValue = sectionsOffsetValues[i+1]
     } else {
-      nextValue = scrollValues[i+1]
+      value = section
+      nextValue = 9999999
     }
 
-    if (scrollY >= value && scrollY < nextValue) {
-      document.querySelector(`#a${sections[i]}`).classList.add('hover')
+    let el = document.querySelector(`#a${sections[i]}`)
+
+    if (targetLine > value && targetLine < nextValue) {
+      el.classList.add('hover')
     } else {
-      document.querySelector(`#a${sections[i]}`).classList.remove('hover')
+      el.classList.remove('hover')
     }
-  });
+
+  })
 }
 
 function hideMenu() {
