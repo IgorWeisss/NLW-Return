@@ -10,13 +10,20 @@ let slideContainer = document.querySelector('.slidecontainer')
 onload = () => {
   let brandColor = getMainColor()
   themeTag.setAttribute('content', brandColor)
-  addHoverClassToLinks()
+  handleScroll()
 }
 
-onscroll = () => {
+onscroll = handleScroll
+
+function handleScroll() {
   addScrollClassOnNav()
   showBackToTopButton()
-  addHoverClassToLinks()
+
+  let sections = document.querySelectorAll('section')
+
+  for (let section of sections) {
+    addHoverClassToLinks(section)
+  }
 }
 
 function addScrollClassOnNav() {
@@ -35,45 +42,19 @@ function showBackToTopButton() {
   }
 }
 
-function addHoverClassToLinks() {
-  const sections = [
-    'Início',
-    'Serviços',
-    'Sobre',
-    'Contato'
-  ]
+function addHoverClassToLinks(section) {
 
-  const sectionsOffsetValues = [
-    Início.offsetTop,
-    Serviços.offsetTop,
-    Sobre.offsetTop,
-    Contato.offsetTop
-  ]
+  const targetLine = scrollY + innerHeight / 2
 
-  const targetLine = scrollY + (innerHeight / 2)
+  let sectionTop = section.offsetTop
+  let sectionBottom = section.offsetHeight + sectionTop
+  let sectionId = section.getAttribute('Id')
 
-  sectionsOffsetValues.forEach(section => {
-    let i = sectionsOffsetValues.indexOf(section)
-    let value
-    let nextValue
-
-    if (i<sectionsOffsetValues.length-1) {
-      value = section
-      nextValue = sectionsOffsetValues[i+1]
-    } else {
-      value = section
-      nextValue = 9999999
-    }
-
-    let el = document.querySelector(`#a${sections[i]}`)
-
-    if (targetLine > value && targetLine < nextValue) {
-      el.classList.add('hover')
-    } else {
-      el.classList.remove('hover')
-    }
-
-  })
+  if (targetLine > sectionTop && targetLine < sectionBottom) {
+    document.querySelector(`#a${sectionId}`).classList.add('hover')
+  } else {
+    document.querySelector(`#a${sectionId}`).classList.remove('hover')
+  }
 }
 
 function hideMenu() {
