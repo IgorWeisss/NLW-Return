@@ -7,21 +7,40 @@ let themeTag = document.querySelector('#themeTag')
 let hueButton = document.querySelector('.hueButton')
 let slideContainer = document.querySelector('.slidecontainer')
 
+let sectionsScrollValues = [
+  0,
+  1525.8182373046875,
+  2922.9091796875,
+  4505.45458984375,
+]
+
+let sections = [
+  'Início',
+  'Serviços',
+  'Sobre',
+  'Contato'
+]
+
 onload = () => {
   let brandColor = getMainColor()
   themeTag.setAttribute('content', brandColor)
+  addHoverClassToLinks(sectionsScrollValues, sections)
 }
 
-onscroll = checkScroll
+onscroll = handleScroll
 
-function checkScroll() {
+function handleScroll() {
+  addScrollClassOnNav()
+  showBackToTopButton()
+  addHoverClassToLinks(sectionsScrollValues, sections)
+}
+
+function addScrollClassOnNav() {
   if (scrollY > 0) {
     nav.classList.add('scroll')
   } else {
     nav.classList.remove('scroll')
   }
-
-  showBackToTopButton()
 }
 
 function showBackToTopButton() {
@@ -32,20 +51,39 @@ function showBackToTopButton() {
   }
 }
 
+function addHoverClassToLinks(scrollValues, sections) {
+  scrollValues.forEach(value => {
+    let i = scrollValues.indexOf(value)
+    let nextValue
+
+    if (i==scrollValues.length - 1) {
+      nextValue = 99999999
+    } else {
+      nextValue = scrollValues[i+1]
+    }
+
+    if (scrollY >= value && scrollY < nextValue) {
+      document.querySelector(`#a${sections[i]}`).classList.add('hover')
+    } else {
+      document.querySelector(`#a${sections[i]}`).classList.remove('hover')
+    }
+  });
+}
+
 function hideMenu() {
   hueButton.classList.remove('clicked')
   slideContainer.classList.add('hidden')
   adjustTransitions(false)
   menu.classList.add('menuHide')
   nav.classList.remove('expanded')
-  checkScroll()
-  onscroll = checkScroll
+  handleScroll()
+  onscroll = handleScroll
 }
 
 function showMenu() {
-    menu.classList.remove('menuHide')
-    nav.classList.add('scroll', 'expanded')
-    onscroll = ''
+  menu.classList.remove('menuHide')
+  nav.classList.add('scroll', 'expanded')
+  onscroll = ''
 }
 
 function getMainColor() {
@@ -65,7 +103,7 @@ function showColorPicker() {
   }
 }
 
-function adjustTransitions (state) {
+function adjustTransitions(state) {
   if (state) {
     menu.classList.add('noTransition')
     nav.classList.add('noTransition')

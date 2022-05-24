@@ -356,6 +356,10 @@ li {
   color: var(--brand-green);
 }
 
+.divider {
+  display: none;
+}
+
 .serviços::before {
   content: '';
   background-color: var(--brand-green-light-02);
@@ -615,6 +619,18 @@ footer ul {
   .menu .sections li a {
     color: var(--brand-green);
     margin-block: auto;
+    opacity: 0.7;
+  }
+
+  .menu .sections li a:hover,
+  .menu .sections li a:hover::after,
+  .menu .sections li a.hover,
+  .menu .sections li a.hover::after,
+  nav.scroll .menu .sections li a:hover,
+  nav.scroll .menu .sections li a:hover::after,
+  nav.scroll .menu .sections li a.hover,
+  nav.scroll .menu .sections li a.hover::after  {
+    opacity: 1;
   }
 
   nav.scroll .menu .sections li a {
@@ -623,6 +639,7 @@ footer ul {
 
   nav.scroll .menu .sections li a::after {
     background-color: var(--brand-green-light);
+    opacity: 0.6;
   }
 
   .menu .sections li a::after {
@@ -637,7 +654,8 @@ footer ul {
     transition: 0.2s;
   }
 
-  .menu .sections li a:hover::after {
+  .menu .sections li a:hover::after,
+  .menu .sections li a.hover::after {
     width: 130%;
   }
 
@@ -686,6 +704,197 @@ footer ul {
     top: 3.6rem;
     transform: translateY(-50%);
     cursor: pointer;
+  }
+
+  .hero,
+  .serviços,
+  .sobre,
+  .contato {
+    padding: 0 12.3rem;
+  }
+
+  .hero .head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .hero .text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    text-align: start;
+  }
+
+  .hero h4 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 150%;
+    letter-spacing: 0.08em;
+  }
+
+  .hero h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 5.2rem;
+    line-height: 130%;
+  }
+  
+  .hero p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 150%;
+  }
+
+  .photo {
+    height: fit-content;
+    align-self: flex-end;
+  }
+
+  .hero .numbers {
+    padding: 6rem 12rem;
+  }
+
+  .hero .numbers ul {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .numbers ul li h3 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4.8rem;
+    line-height: 130%;
+  }
+
+  .numbers ul li h5 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 150%;
+  }
+
+  .divider {
+    display: flex;
+  }
+
+  #heroButton {
+    margin-bottom: 2rem;
+  }
+
+  .serviços::before {
+    height: 10.55rem;
+    top: -10.55rem;
+  }
+
+  .serviços h4 {
+    margin-top: 16rem;
+  }
+
+  .serviços h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.2rem;
+    text-align: center;
+    width: 49.7rem;
+    margin-bottom: 6.4rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 34.7rem 34.7rem 34.7rem;
+    gap: 4rem;
+    margin-bottom: 16rem;
+  }
+
+  .sobre {
+    display: grid;
+    grid-template-columns: 48rem 57.3rem;
+    grid-template-areas: "A B";
+    gap: 6.7rem;
+    padding: 16rem 12.3rem;
+  }
+
+  .sobre .photo {
+    grid-area: A;
+  }
+
+  .sobre .aboutText {
+    grid-area: B;
+    justify-self: center;
+  }
+
+  .sobre p {
+    margin: 0;
+  }
+
+  .sobre h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+
+  .contato {
+    display: grid;
+    grid-template-columns: 40.4rem 57.7rem;
+    gap: 14.1rem;
+    padding: 16rem 12.3rem;
+  }
+
+  .contato .col-A {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contato button {
+    margin: 0;
+  }
+
+  .contato h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5.2rem;
+  }
+
+  footer {
+    box-sizing: border-box;
+    height: 26.8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8rem 12.3rem;
+  }
+
+  footer .col-B {
+    display: flex;
+    align-items: center;
+  }
+
+  footer ul, footer p {
+    margin: 0;
+  }
+
+  footer .col-A img {
+    height: 3.3rem;
+  }
+
+  footer .col-A img + p {
+    margin-bottom: 1.5rem;
+  }
+
+  footer .col-A p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
   }
 
 }
